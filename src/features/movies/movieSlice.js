@@ -14,9 +14,21 @@ export const movieSlice = createSlice({
           }
       ],
     },
-    reducers: {},
+    reducers: {
+      incrementYears: (state, action) => {
+        state.movies.forEach(
+          movie => movie.year += action.payload
+        );
+      },
+      randomizeYears: (state, action) => {
+        const { min, max } = action.payload;
+        state.movies.forEach(
+          movie => movie.year = min + Math.round(Math.random() * (max - min))
+        );
+      }
+    },
   });
-  
-export const selectMovies = state => state.movies.movies;
 
+export const { incrementYears, randomizeYears } = movieSlice.actions;
+export const selectMovies = state => state.movies.movies;
 export default movieSlice.reducer;
