@@ -19,6 +19,8 @@ export const movieSlice = createSlice({
               "year": 1999
           }
       ],
+      status: 'idle',
+      error: null
     },
     reducers: {
       incrementYears: (state, action) => {
@@ -34,13 +36,21 @@ export const movieSlice = createSlice({
       }
     },
     extraReducers: {
+      [fetchMovies.pending]: (state, action) => {
+        state.status = 'loading';
+      },  
       [fetchMovies.fulfilled]: (state, action) => {
+        state.status = 'succeeded';
         state.movies = action.payload.Search.map(movie => {
           return {
             title: movie.Title,
             year: movie.Year
           };
         });
+      },
+      [fetchMovies.rejected]: (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
       }
     }
   });

@@ -5,9 +5,12 @@ import { useEffect } from "react";
 
 export function MovieList() {
    const dispatch = useDispatch();
+   const postStatus = useSelector(state => state.movies.status);
    useEffect(() => {
-      dispatch(fetchMovies());
-   });
+      if (postStatus == 'idle') {
+         dispatch(fetchMovies());
+      }
+   }, [postStatus, dispatch]);
 
    const movies = useSelector(selectMovies);
    const listItems = movies.map(movie => <li>{movie.title} ({movie.year})</li>);
