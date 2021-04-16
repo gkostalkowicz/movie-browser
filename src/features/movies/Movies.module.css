@@ -1,0 +1,31 @@
+.MovieList ul {
+    margin: 0;
+    padding: 0;
+}
+
+.MovieList li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.MovieList a {
+    display: block;
+    padding: 0.5em;
+    color: #060;
+    text-decoration: none;
+}
+
+.MovieList a:hover {
+    background-color: #eee;
+}
+
+.MovieList .title {
+    display: block;
+    font-style: italic;
+}
+
+.MovieList .year {
+    display: block;
+    font-weight: bold;
+}

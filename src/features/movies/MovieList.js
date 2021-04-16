@@ -2,6 +2,7 @@ import { selectMovies, incrementYears, randomizeYears, incrementYearsAsync, fetc
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from "react";
+import styles from './Movies.module.css';
 
 export function MovieList() {
    const dispatch = useDispatch();
@@ -13,15 +14,15 @@ export function MovieList() {
    }, [postStatus, dispatch]);
 
    const movies = useSelector(selectMovies);
-   const listItems = movies.map(movie => <li>{movie.title} ({movie.year})</li>);
-   return <div>
-         <p>Here are your movies:</p>
+   const listItems = movies.map(movie => <li>
+         <a href="#">
+            <span className={styles.title}>{movie.title}</span>
+            <span className={styles.year}> {movie.year}</span>
+         </a>
+      </li>);
+   return <div className={styles.MovieList}>
          <ul>
             {listItems}
          </ul>
-         <button onClick={() => dispatch(incrementYears(4))}>Back to the future</button>
-         <button onClick={() => dispatch(randomizeYears({min: 1960, max: 2021}))}>Surprise me</button>
-         <button onClick={() => dispatch(incrementYearsAsync())}>Wait a second...</button>
-         <button onClick={() => dispatch(fetchMovies())}>Get the latest ones</button>
       </div>
 }
