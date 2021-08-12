@@ -1,6 +1,5 @@
 import { selectMovies, fetchMovieList, fetchMovieDetails } from "./movieSlice";
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import { useEffect } from "react";
 import styles from './Movies.module.css';
 

@@ -16,16 +16,7 @@ export const fetchMovieDetails = createAsyncThunk('movies/fetchMovieDetails', as
 export const movieSlice = createSlice({
     name: 'movies',
     initialState: {
-      movies: [
-          {
-              "title": "I Care a Lot",
-              "year": 2020
-          },
-          {
-              "title": "News of the World",
-              "year": 1999
-          }
-      ],
+      movies: [],
       movieDetails: null,
       requestStatus: 'idle',
       responseError: null
@@ -55,7 +46,6 @@ export const movieSlice = createSlice({
           title: action.payload.Title,
           year: action.payload.Year
         }
-        console.log('got movie details', action.payload); // TODO
       }
     }
   });

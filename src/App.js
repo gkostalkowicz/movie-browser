@@ -1,6 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import styles from './App.css';
 import { MovieList } from './features/movies/MovieList';
 import { MovieDetail } from './features/movies/MovieDetail';
