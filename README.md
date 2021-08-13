@@ -9,8 +9,16 @@ Make sure you have the following installed on your machine:
 1. Node
 2. NPM
 
-To start the application, type:
+Install the dependencies:
 
-```npm start```
+```
+npm install
+```
+
+And start the application:
+
+```
+npm start
+```
 
 It will build and open the application in your browser under http://localhost:3000/.
